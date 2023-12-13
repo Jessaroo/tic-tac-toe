@@ -37,11 +37,9 @@ function handleSquareClick(event) {
         if (currentPlayer === 'X') {
             currentPlayer = 'O';
             updateTurnDisplay();
-            setTimeout(() => {
                 computersTurn();
                 updateTurnDisplay();
                 turnCounter++;
-            }, 0);
         }
     }
 }
@@ -80,10 +78,40 @@ function checkForWinner() {
 }
 
 function checkForTie() {
-    const squares = document.querySelectorAll('.game-square');
     if (chosen.length === squares.length && !checkForWinner()) {
         console.log("Tie!");
         return true;
     }
     return false;
+}
+
+function resetGame() {
+    console.log('Resetting the game');
+    const squares = document.querySelectorAll('.game-square');
+    for (let index = 0; index < squares.length; index++) {
+        squares[index].textContent = '';
+    }
+    chosen = [];
+    currentPlayer = 'X';
+    turnCounter = 0;
+    updateTurnDisplay();
+    console.log('Game reset complete');
+}
+
+function endGame() {
+    won = checkForWinner() && currentPlayer === 'X';
+    if (won || !won) {
+        if (won) {
+            alert('You won!');
+            scoreboardX.textContent = parseInt(scoreboardX.textContent) + 1;
+        } else {
+            if(checkForTie()) {
+                alert('Tie!');
+            } else {
+                alert('Try again!');
+                scoreboardO.textContent = parseInt(scoreboardO.textContent) + 1;
+            }
+        }
+        resetGame();
+    }
 }
