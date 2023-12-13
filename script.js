@@ -1,4 +1,3 @@
-//variables
 let won = false;
 let lost = false;
 let currentPlayer = 'X';
@@ -7,15 +6,12 @@ let scoreboardX = document.getElementById('scoreboard-x');
 let scoreboardO = document.getElementById('scoreboard-o');
 let turns = document.getElementById('turn');
 let turnCounter = 0;
-
 scoreboardX.textContent = '0';
 scoreboardO.textContent = '0';
 
-//const elements
 const squares = document.querySelectorAll('.game-square');
 const playAgainBtn = document.getElementById('button-play-again');
 let squareStates = Array.from({length: 9}).fill('');
-//event listeners
 for (let i = 0; i < squares.length; i++) {
     squares[i].addEventListener('click', handleSquareClick);
 }
@@ -90,7 +86,6 @@ function checkForTie() {
 }
 
 function resetGame() {
-    console.log('Resetting the game');
     for (let index = 0; index < squares.length; index++) {
         squares[index].textContent = '';
     }
@@ -98,7 +93,6 @@ function resetGame() {
     currentPlayer = 'X';
     turnCounter = 0;
     updateTurnDisplay();
-    console.log('Game reset complete');
 }
 
 function endGame() {
