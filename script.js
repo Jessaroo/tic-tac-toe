@@ -63,7 +63,6 @@ function updateTurnDisplay() {
         turnsDisplay.textContent = 'Player O\'s turn';
     }
     turnsDisplay.textContent += `- Turn: ${turnCounter}`;
-    console.log('Turn display updated:', turnsDisplay.textContent);
 }
 
 function checkForWinner() {
@@ -79,7 +78,6 @@ function checkForWinner() {
 
 function checkForTie() {
     if (chosen.length === squares.length && !checkForWinner()) {
-        console.log("Tie!");
         return true;
     }
     return false;
