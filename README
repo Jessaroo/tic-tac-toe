@@ -1,2 +1,6 @@
 Tic-Tac-Toe Player instructions.
+
 First choose if you will be "x" or "O".
+To begin playing click in a box of your choice and you will be prompted when it's your turn to select a box again. 
+The goal is to match three X's either horizontal, vertical or diagonal. 
+To play again simply press the Play Again button. 
